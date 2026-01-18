@@ -1,0 +1,129 @@
+.main-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding-bottom: 9rem;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &-title {
+            margin-bottom: 6rem;
+
+            & * {
+
+                font-size: 4.5rem;
+                line-height: 100%;
+                font-weight: 500;
+                color: var(--text-main);
+            }
+        }
+
+        &-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+
+            &__btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+
+                min-height: 15rem;
+                width: 35rem;
+
+                background-color: var(--bg-card);
+                border-radius: 1rem;
+                container-type: inline-size;
+
+                &-svg {
+                    width: 10cqi;
+                    height: 10cqi;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+
+                    :deep(svg) {
+                        width: 100% !important;
+                        fill: var(--text-main) !important;
+                    }
+                }
+
+                &-descr {
+                    font-size: 6.4cqi;
+                    line-height: 110%;
+                    font-weight: 300;
+                    color: var(--text-main);
+                }
+
+                &:hover {
+                    transform: translateY(-0.3rem);
+                    box-shadow: 0px 0.6rem 1rem -0.5rem var(--accent);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+
+    .main-page {
+        padding-bottom: 9rem;
+    
+        &__content {
+    
+            &-title {
+                margin-bottom: 6rem;
+    
+                & * {
+                    font-size: 8rem;
+                }
+            }
+    
+            &-list {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+    
+                &__btn {
+                    min-height: 30rem;
+                    width: 60rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 470px) {
+
+    .main-page {
+        padding-bottom: 9rem;
+    
+        &__content {
+    
+            &-title {
+                margin-bottom: 6rem;
+    
+                & * {
+                    font-size: 8rem;
+                }
+            }
+    
+            &-list {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 20px;
+    
+                &__btn {
+                    min-height: 30rem;
+                    width: 90rem;
+                }
+            }
+        }
+    }
+}

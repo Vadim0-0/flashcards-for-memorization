@@ -1,0 +1,270 @@
+.selection-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem;
+  
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 4rem;
+
+        &-info {
+            &__title {
+                margin-bottom: 2.5rem;
+        
+                * {
+                    font-size: 3rem;
+                    font-weight: 500;
+                    color: var(--text-main);
+                    text-align: center;
+                }
+            }
+
+            &__descr {
+                font-size: 2.5rem;
+                font-weight: 300;
+                color: var(--text-main);
+                text-align: center;
+            }
+        }
+
+        &-choice {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+
+            &__btn {
+                width: 40rem;
+                min-height: 20rem;
+                padding: 2rem;
+                background-color: var(--bg-card);
+                border: 0.3rem solid var(--border);
+                border-radius: 1rem;
+                transform: scale(0);
+                animation: cardAppear 0.5s ease forwards;
+                container-type: inline-size;
+                
+                &:not(.fading-out) {
+                    animation: cardAppear 0.5s ease forwards;
+                }
+                
+                &-descr {
+                    font-size: 7cqi;
+                    font-weight: 400;
+                    line-height: 110%;
+                    color: var(--text-main);
+                    
+                }
+
+                &:hover:not(:disabled):not(.active):not(.correctly):not(.error) {
+                    transform: scale(1.05);
+                    box-shadow: 0px 0.4rem 0.8rem -0.3rem var(--accent);
+                }
+
+                &:disabled {
+                    opacity: 0;
+                    cursor: not-allowed;
+                }
+
+                &.active {
+                    border-color: var(--accent);
+                    transform: scale(0.9);
+                }
+
+                &.correctly {
+                    background-color: rgba(34, 197, 94, 0.2);
+                    border-color: #22c55e;
+                    color: #22c55e;
+                    transform: scale(1);
+                }
+
+                &.error {
+                    background-color: rgba(239, 68, 68, 0.2);
+                    border-color: #ef4444;
+                    color: #ef4444;
+                    transform: scale(1);
+                }
+
+                &.fading-out {
+                    animation: cardDisappear 0.5s ease forwards !important;
+                }
+            }
+        }
+    }
+}
+
+@keyframes cardAppear {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes cardDisappear {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 1024px) {
+    .selection-page {
+    
+        &__content {
+            gap: 5rem;
+
+            &-info {
+                &__title {
+        
+                    & * {
+                        font-size: 4rem;
+                    }
+                }
+
+                &__descr {
+                    font-size: 3rem;
+                }
+
+            }
+    
+    
+            &-choice {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+    
+                &__btn {
+                    width: 35rem;
+                    min-height: 17rem;
+                    padding: 2rem;
+                    background-color: var(--bg-card);
+                    border: 0.35rem solid var(--border);
+                    border-radius: 1rem;
+                    
+                    &-descr {
+                        font-size: 7cqi;
+                        
+                    }
+    
+                    &:hover:not(:disabled):not(.active):not(.correctly):not(.error) {
+                        transform: scale(1.05);
+                        box-shadow: 0px 0.4rem 0.8rem -0.3rem var(--accent);
+                    }
+                }
+            }
+        }
+    }
+}
+  
+@media (max-width: 768px) {
+    .selection-page {
+        padding-top: 15rem;
+    
+        &__content {
+            gap: 5rem;
+
+            &-info {
+                &__title {
+        
+                    & * {
+                        font-size: 6rem;
+                    }
+                }
+
+                &__descr {
+                    font-size: 3.5rem;
+                }
+
+            }
+    
+    
+            &-choice {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+    
+                &__btn {
+                    width: 45rem;
+                    min-height: 25rem;
+                    padding: 2rem;
+                    background-color: var(--bg-card);
+                    border: 0.35rem solid var(--border);
+                    border-radius: 1.2rem;
+                    
+                    &-descr {
+                        font-size: 9cqi;
+                        
+                    }
+    
+                    &:hover:not(:disabled):not(.active):not(.correctly):not(.error) {
+                        transform: scale(1.05);
+                        box-shadow: 0px 0.4rem 0.8rem -0.3rem var(--accent);
+                    }
+                }
+            }
+        }
+    }
+}
+  
+@media (max-width: 470px) {
+    .selection-page {
+        padding-top: 15rem;
+    
+        &__content {
+            gap: 8rem;
+
+            &-info {
+                
+                &__title {
+        
+                    & * {
+                        font-size: 8rem;
+                    }
+                }
+
+                &__descr {
+                    font-size: 4rem;
+                }
+            }
+    
+
+            &-choice {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+                width: 90%;
+    
+                &__btn {
+                    width: auto;
+                    min-height: 25rem;
+                    padding: 2rem;
+                    background-color: var(--bg-card);
+                    border: 0.35rem solid var(--border);
+                    border-radius: 1.2rem;
+                    
+                    &-descr {
+                        font-size: 9cqi;
+                        
+                    }
+    
+                    &:hover:not(:disabled):not(.active):not(.correctly):not(.error) {
+                        transform: scale(1.05);
+                        box-shadow: 0px 0.4rem 0.8rem -0.3rem var(--accent);
+                    }
+                }
+            }
+        }
+    }
+}
+  

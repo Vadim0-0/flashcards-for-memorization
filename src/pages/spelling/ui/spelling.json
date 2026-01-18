@@ -1,0 +1,13 @@
+{
+  "ru": {
+    "title": "Написание",
+    "placeholder": "Введите перевод",
+    "checkButton": "Проверить"
+  },
+  "en": {
+    "title": "Spelling",
+    "placeholder": "Enter translation",
+    "checkButton": "Check"
+  }
+}
+

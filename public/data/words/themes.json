@@ -1,0 +1,26 @@
+[
+  {
+    "id": "all",
+    "name": {
+      "ru": "All",
+      "en": "All"
+    },
+    "path": null
+  },
+  {
+    "id": "travel",
+    "name": {
+      "ru": "Travel",
+      "en": "Travel"
+    },
+    "path": "/data/words/themes/travel.json"
+  },
+  {
+    "id": "basic",
+    "name": {
+      "ru": "Basic words",
+      "en": "Basic words"
+    },
+    "path": "/data/words/themes/basic.json"
+  }
+]

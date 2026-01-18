@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "russian": "привет",
+    "english": ["hello", "hi"]
+  },
+  {
+    "id": 2,
+    "russian": "спасибо",
+    "english": ["thank you", "thanks"]
+  },
+  {
+    "id": 3,
+    "russian": "пожалуйста",
+    "english": ["please", "you're welcome"]
+  },
+  {
+    "id": 4,
+    "russian": "дом",
+    "english": ["house", "home"]
+  },
+  {
+    "id": 5,
+    "russian": "книга",
+    "english": ["book"]
+  }
+]

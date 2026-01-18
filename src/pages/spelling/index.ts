@@ -1,0 +1,1 @@
+export { default as SpellingPage } from './ui/SpellingPage.vue'

@@ -1,0 +1,31 @@
+:root {
+  --font-family: "Nunito", sans-serif;
+}
+
+/* DARK */
+html[data-theme="dark"] {
+  --bg-main: #040404;
+  --bg-card: #151515;
+  --border: #1d1f25;
+
+  --text-main: #E4E6EB;
+  --text-secondary: #828282;
+  --text-muted: #6F7487;
+
+  --accent: #e0e0e0;
+  
+}
+
+/* LIGHT */
+html[data-theme="light"] {
+  --bg-main: #f4f4f4;
+  --bg-card: #FFFFFF;
+  --border: #dfdfdf;
+
+  --text-main: #0E0F14;
+  --text-secondary: #4C5166;
+  --text-muted: #8A8FA3;
+
+  --accent: #040404;
+  
+}

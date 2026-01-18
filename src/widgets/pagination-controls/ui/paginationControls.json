@@ -1,0 +1,15 @@
+{
+  "ru": {
+    "prevCard": "Предыдущая карточка",
+    "nextCard": "Следующая карточка",
+    "flipCard": "Перевернуть карточку",
+    "changeLanguage": "Сменить язык"
+  },
+  "en": {
+    "prevCard": "Previous card",
+    "nextCard": "Next card",
+    "flipCard": "Flip card",
+    "changeLanguage": "Change language"
+  }
+}
+

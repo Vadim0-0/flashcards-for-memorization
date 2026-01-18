@@ -1,0 +1,162 @@
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  height: 100%;
+  background-color: var(--bg-main);
+
+  font-size: calc(100vw / 1920 * 10); /* Основной ориентир — ширина */
+  font-size: min(calc(100vw / 1920 * 10), calc(100vh / 1080 * 10));
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  font-family: var(--font-family);
+  background-color: var(--bg-main);
+
+  &.stop {
+    overflow: hidden;
+  }
+}
+
+img {
+  max-width: 100%;
+  pointer-events: none;
+  object-fit: cover;
+}
+
+a {
+  user-drag: none;
+  color: #000;
+  transition: all 0.3s ease-in-out;
+
+  & svg {
+    transition: all 0.3s ease-in-out;
+
+  }
+}
+
+button {
+  font-family: var(--font-family);
+  transition: all 0.3s ease-in-out;
+
+  & svg {
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+input {
+
+  &::placeholder {
+    opacity: 1;
+  }
+
+  &.error {
+    color: #ef4444;
+
+    &::-webkit-input-placeholder {
+      color: #ef4444;
+    }
+
+    &::-moz-placeholder {
+      color: #ef4444;
+    }
+
+    &:-ms-input-placeholder {
+      color: #ef4444;
+    }
+
+    &::-ms-input-placeholder {
+      color: #ef4444;
+    }
+
+    &::placeholder {
+      color: #ef4444;
+    }
+  }
+}
+
+#app {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+
+.btn-global {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 23px;
+  gap: 10px;
+  border-radius: 8px;
+  background-color: var(--bg-main);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--night-main-black);
+
+  &:hover {
+    background-color: var(--night-500-white);
+  }
+}
+
+.section-title {
+  font-weight: 500;
+  font-size: 50px;
+  color: var(--night-clear-white);
+
+  & * {
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 1600px) {
+
+  .section-title {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: calc(100vw / 1200 * 10); /* Основной ориентир — ширина */
+    font-size: min(calc(100vw / 1200 * 10), calc(100vh / 1200 * 10));
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: calc(100vw / 1600 * 10); /* Основной ориентир — ширина */
+    font-size: min(calc(100vw / 1600 * 10), calc(100vh / 1900 * 10));
+  }
+}
+
+@media (max-width: 470px) {
+  html {
+    font-size: calc(100vw / 900 * 10); /* Основной ориентир — ширина */
+    font-size: min(calc(100vw / 1100 * 10), calc(100vh / 2500 * 10));
+  }
+}

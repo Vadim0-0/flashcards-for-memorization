@@ -1,0 +1,87 @@
+.cards-list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+
+    &__container {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        perspective: 1200px;
+        transform-style: preserve-3d;
+    }
+}
+
+
+// Анимации смены карточек
+
+// NEXT: Текущая улетает вправо, следующая уже находится сзади и выходит вперед
+.slide-right-enter-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+.slide-right-leave-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+// Следующая карточка появляется из глубины (сзади)
+.slide-right-enter-from {
+  transform: translateX(0) translateZ(-80px) scale(0.8);
+  opacity: 0;
+}
+
+// Следующая карточка выходит вперед на место
+.slide-right-enter-to {
+  transform: translateX(0) translateZ(0) scale(1);
+  opacity: 1;
+}
+
+// Текущая карточка уходит вправо за экран
+.slide-right-leave-from {
+  transform: translateX(0) translateZ(0) scale(1);
+  opacity: 1;
+}
+
+.slide-right-leave-to {
+  transform: translateX(150%) translateZ(0) scale(1);
+  opacity: 0;
+}
+
+// PREV: Предыдущая выезжает справа, текущая уменьшается на месте
+.slide-left-enter-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+.slide-left-leave-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+// Предыдущая карточка выезжает справа
+.slide-left-enter-from {
+  transform: translateX(100%) translateZ(0) scale(1);
+  opacity: 0;
+}
+
+.slide-left-enter-to {
+  transform: translateX(0) translateZ(0) scale(1);
+  opacity: 1;
+}
+
+// Текущая карточка уменьшается на месте
+.slide-left-leave-from {
+  transform: translateX(0) translateZ(0) scale(1);
+  opacity: 1;
+}
+
+.slide-left-leave-to {
+  transform: translateX(0) translateZ(0) scale(0.7);
+  opacity: 0;
+}

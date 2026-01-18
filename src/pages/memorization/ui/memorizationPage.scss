@@ -1,0 +1,283 @@
+.memorization-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem;
+    overflow: hidden;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 5rem;
+
+        &-title {
+            margin-bottom: 2rem;
+
+            & * {
+                font-size: 3rem;
+                font-weight: 500;
+                color: var(--text-main);
+                text-align: center;
+            }
+        }
+
+        &-words {
+            display: flex;
+            justify-content: center;
+            width: 70rem;
+            min-height: 30rem;
+            container-type: inline-size;
+            
+            &__card {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                padding: 2cqi;
+                transition: transform 0.6s;
+
+                border-radius: 3cqi;
+                box-shadow: 0 1cqi 2cqi rgba(0, 0, 0, 0.1);
+                background-color: var(--bg-card);
+                border: 0.4cqi solid var(--border);
+                
+
+                &-word {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    text-align: center;
+                    font-size: 5cqi;
+                    font-weight: 400;
+                    color: var(--text-main);
+                    line-height: 110%;
+                }
+            }
+        }
+
+        &-choice {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            width: 70rem;
+
+            &__btn {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                padding: 1.8rem 2rem;
+                font-size: 2.3rem;
+                font-weight: 400;
+                color: var(--text-main);
+                background-color: var(--bg-card);
+                border: 0.3rem solid var(--border);
+                border-radius: 1rem;
+                transition: all 0.3s ease-in-out;
+
+                &:hover:not(:disabled) {
+                    transform: translateY(-0.2rem);
+                    box-shadow: 0px 0.4rem 0.8rem -0.3rem var(--accent);
+                }
+
+                &:disabled {
+                    opacity: 0.7;
+                }
+
+                &.error {
+                    border-color: #ef4444;
+                    color: #ef4444;
+                }
+
+                &.correctly {
+                    border-color: #22c55e;
+                    color: #22c55e;
+                }
+            }
+        }
+    }
+}
+
+// Скрываем все кнопки в PaginationControls кроме change-language
+:deep(.pagination-conterols__content-btns) {
+    justify-content: center;
+}
+:deep(.pagination-conterols__content-btns__btn) {
+    display: none;
+  
+    &.change-language {
+      display: flex;
+    }
+}
+
+// Анимации смены карточек
+.slide-right-enter-active {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-right-leave-active {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-right-enter-from {
+  transform: translateZ(-80px) scale(0.8);
+  opacity: 0;
+}
+
+.slide-right-enter-to {
+  transform: translateZ(0) scale(1);
+  opacity: 1;
+}
+
+.slide-right-leave-from {
+  transform: translateX(0) translateZ(0) scale(1);
+  opacity: 1;
+}
+
+.slide-right-leave-to {
+  transform: translateX(150%) translateZ(0) scale(1);
+  opacity: 0;
+}
+
+@media (max-width: 1024px) {
+    .memorization-page {
+    
+        &__content {
+            gap: 5rem;
+    
+            &-title {
+    
+                & * {
+                    font-size: 4rem;
+                }
+            }
+    
+            &-words {
+                width: 80rem;
+                min-height: 40rem;
+                
+                &__card {
+    
+                    &-word {
+                        font-size: 6cqi;
+                    }
+                }
+            }
+    
+            &-choice {
+                width: 80rem;
+    
+                &__btn {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+    
+                    padding: 2rem 2rem;
+                    font-size: 2.8rem;
+                    border-radius: 1.5rem;
+                    border: 0.35rem solid var(--border);
+                }
+            }
+        }
+    }
+}
+  
+@media (max-width: 768px) {
+    .memorization-page {
+        padding-top: 15rem;
+    
+        &__content {
+            gap: 5rem;
+    
+            &-title {
+    
+                & * {
+                    font-size: 6rem;
+                }
+            }
+    
+            &-words {
+                max-width: 90%;
+                width: 120rem;
+                min-height: 60rem;
+                
+                &__card {
+    
+                    &-word {
+                        font-size: 6cqi;
+                    }
+                }
+            }
+    
+            &-choice {
+                max-width: 90%;
+                width: 120rem;
+    
+                &__btn {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+    
+                    padding: 3rem 2rem;
+                    font-size: 4.2rem;
+                    border-radius: 1.5rem;
+                    border: 0.5rem solid var(--border);
+                }
+            }
+        }
+    }
+}
+  
+@media (max-width: 470px) {
+    .memorization-page {
+        padding-top: 15rem;
+    
+        &__content {
+            gap: 8rem;
+    
+            &-title {
+    
+                & * {
+                    font-size: 8rem;
+                }
+            }
+    
+            &-words {
+                width: 90%;
+                
+                &__card {
+    
+                    &-word {
+                        font-size: 7cqi;
+                    }
+                }
+            }
+    
+            &-choice {
+                grid-template-columns: repeat(1, 1fr);
+                width: 90%;
+                gap: 4rem;
+    
+                &__btn {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+    
+                    padding: 4rem 2rem;
+                    font-size: 6rem;
+                    border-radius: 1.5rem;
+                    border: 0.5rem solid var(--border);
+                }
+            }
+        }
+    }
+}
+  
