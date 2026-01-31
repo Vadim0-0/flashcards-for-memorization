@@ -42,7 +42,7 @@
 import { ref, computed, inject, watch, onMounted, nextTick, type Ref } from 'vue'
 import type { WordCard } from '@/shared/types/card'
 import type { Theme } from '@/shared/types/theme'
-import { getDataUrl, usePageTranslations } from '@/shared/lib'
+import { getDataUrl, normalizeWordCards, usePageTranslations } from '@/shared/lib'
 
 const selectedThemeId = inject<Ref<string>>('selectedThemeId', ref('all'))
 const showLoader = inject<() => void>('showLoader', () => {})
@@ -182,14 +182,16 @@ const loadAllThemes = async (): Promise<WordCard[]> => {
     // Загружаем все темы параллельно
     const themePromises = themes
       .filter(theme => theme.path) // Только темы с путем
-      .map(theme => 
-        fetch(getDataUrl(theme.path!))
-          .then(response => response.json() as Promise<WordCard[]>)
-          .catch(error => {
-            console.error(`Ошибка загрузки темы:`, error)
-            return []
-          })
-      )
+      .map(async (theme) => {
+        try {
+          const response = await fetch(getDataUrl(theme.path!))
+          const data = await response.json()
+          return normalizeWordCards(data)
+        } catch (error) {
+          console.error(`Ошибка загрузки темы:`, error)
+          return []
+        }
+      })
     
     const allThemesWords = await Promise.all(themePromises)
     const allWords = allThemesWords.flat()
@@ -223,7 +225,8 @@ const loadWordsFromTheme = async (themeId: string, force = false, showLoading = 
       
       if (theme && theme.path) {
         const response = await fetch(getDataUrl(theme.path))
-        loadedWords = await response.json() as WordCard[]
+        const data = await response.json()
+        loadedWords = normalizeWordCards(data)
       }
     }
     

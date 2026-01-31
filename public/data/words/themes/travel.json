@@ -1,27 +1,7 @@
 [
-  {
-    "id": 1,
-    "russian": "аэропорт",
-    "english": ["airport"]
-  },
-  {
-    "id": 2,
-    "russian": "отель",
-    "english": ["hotel"]
-  },
-  {
-    "id": 3,
-    "russian": "паспорт",
-    "english": ["passport"]
-  },
-  {
-    "id": 4,
-    "russian": "чемодан",
-    "english": ["suitcase", "luggage"]
-  },
-  {
-    "id": 5,
-    "russian": "билет",
-    "english": ["ticket"]
-  }
+  "аэропорт | airport",
+  "отель | hotel",
+  "паспорт | passport",
+  "чемодан | suitcase, luggage",
+  "билет | ticket"
 ]

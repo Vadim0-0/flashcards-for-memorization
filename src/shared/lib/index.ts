@@ -24,6 +24,7 @@ export const getDataUrl = (relativePath: string): string => {
   return relativePath.startsWith('/') ? relativePath : `/${relativePath}`
 }
 
+export { normalizeWordCards } from './normalizeWordCards'
 export { useLanguage } from './useLanguage'
 export { useExerciseName } from './useExerciseName'
 export { useThemeName } from './useThemeName'
